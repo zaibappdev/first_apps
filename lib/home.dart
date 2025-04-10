@@ -1,7 +1,7 @@
 import 'package:first_apps/messenger.dart';
 import 'package:first_apps/notifications.dart';
 import 'package:first_apps/post.dart';
-import 'package:first_apps/profile.dart';
+import 'package:first_apps/Profile/profile.dart';
 import 'package:first_apps/search.dart';
 import 'package:flutter/material.dart';
 
@@ -95,9 +95,21 @@ class _HomeState extends State<Home> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8),
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage(users[index]["image"]!),
+                          child: Container(
+                            width: 65,
+                            height: 65,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.green,
+                                width: 2,
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              radius: 30,
+                              backgroundImage: AssetImage(users[index]["image"]!),
+                              backgroundColor: Colors.transparent, // For clean edge
+                            ),
                           ),
                         ),
                         SizedBox(height: 2), // Space between avatar & text
@@ -114,6 +126,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
+
 
             ///Container posting ui
             Container(

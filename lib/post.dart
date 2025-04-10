@@ -1,4 +1,4 @@
-import 'package:first_apps/profile.dart';
+import 'package:first_apps/Profile/profile.dart';
 import 'package:first_apps/search.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';

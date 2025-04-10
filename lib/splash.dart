@@ -1,6 +1,8 @@
 import 'dart:async';
-import 'package:first_apps/Authentication/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:first_apps/Authentication/login.dart';
+import 'home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -10,13 +12,21 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  static FirebaseAuth auth = FirebaseAuth.instance;
+
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 10), () {
-      Navigator.of(
-        context,
-      ).pushReplacement(MaterialPageRoute(builder: (context) => Login()));
+    Timer(Duration(seconds: 2), () {
+      if (auth.currentUser != null) {
+        Navigator.of(
+          context,
+        ).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
+      } else {
+        Navigator.of(
+          context,
+        ).pushReplacement(MaterialPageRoute(builder: (context) => Login()));
+      }
     });
   }
 
@@ -27,36 +37,21 @@ class _SplashState extends State<Splash> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // App Logo
-            SizedBox(
-              height: 300,
-              width: 300,
-              child: Image.asset("assets/image.png"),
+            Image.asset("assets/image.png", height: 250, width: 250),
+
+            SizedBox(height: 30),
+            Text(
+              'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.green[700],
+                fontFamily: 'Amiri',
+              ),
+              textAlign: TextAlign.center,
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       'Welcome to',
-            //       style: TextStyle(
-            //         color: Colors.black,
-            //         fontSize: 20,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //     ),
-            //     SizedBox(width: 3),
-            //     Text(
-            //       'Ummah',
-            //       style: TextStyle(
-            //         color: Colors.green,
-            //         fontSize: 20,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),

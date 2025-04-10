@@ -1,5 +1,5 @@
 import 'package:first_apps/post.dart';
-import 'package:first_apps/profile.dart';
+import 'package:first_apps/Profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'notifications.dart';
