@@ -1,25 +1,34 @@
-import 'package:first_apps/Profile/profile.dart';
+import 'package:first_apps/Setting/setting.dart';
 import 'package:flutter/material.dart';
 
-class ProfileShare extends StatefulWidget {
-  const ProfileShare({super.key});
+class ShareProfile extends StatefulWidget {
+  const ShareProfile({super.key});
 
   @override
-  State<ProfileShare> createState() => _ProfileShareState();
+  State<ShareProfile> createState() => _ShareProfileState();
 }
 
-class _ProfileShareState extends State<ProfileShare> {
+class _ShareProfileState extends State<ShareProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.white,
+
+      //Appbar
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text("Share profile"),
+        centerTitle: true,
+      ),
+
+      //Body
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 50),
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 50),
         child: Column(
           children: [
             SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(25),
@@ -27,14 +36,6 @@ class _ProfileShareState extends State<ProfileShare> {
               child: Column(
                 children: [
                   Image.asset("assets/img.png", height: 220, width: 220),
-                  Text(
-                    '@zaib__mughal_09',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF7433FF),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -47,7 +48,7 @@ class _ProfileShareState extends State<ProfileShare> {
                     Container(
                       padding: EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(14),
                         boxShadow: [
                           BoxShadow(color: Colors.black12, blurRadius: 6),
@@ -58,7 +59,7 @@ class _ProfileShareState extends State<ProfileShare> {
                     SizedBox(height: 6),
                     Text(
                       'Share profile',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                     ),
                   ],
                 ),
@@ -68,7 +69,7 @@ class _ProfileShareState extends State<ProfileShare> {
                     Container(
                       padding: EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(14),
                         boxShadow: [
                           BoxShadow(color: Colors.black12, blurRadius: 6),
@@ -79,7 +80,7 @@ class _ProfileShareState extends State<ProfileShare> {
                     SizedBox(height: 6),
                     Text(
                       'Copy link',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                     ),
                   ],
                 ),
@@ -89,7 +90,7 @@ class _ProfileShareState extends State<ProfileShare> {
                     Container(
                       padding: EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(14),
                         boxShadow: [
                           BoxShadow(color: Colors.black12, blurRadius: 6),
@@ -100,7 +101,7 @@ class _ProfileShareState extends State<ProfileShare> {
                     SizedBox(height: 6),
                     Text(
                       'Download',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                     ),
                   ],
                 ),
@@ -108,10 +109,10 @@ class _ProfileShareState extends State<ProfileShare> {
             ),
 
             // Save Button
-            SizedBox(height: 90),
+            SizedBox(height: 50),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.green,
                 // Button fill color
                 foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(
@@ -120,12 +121,12 @@ class _ProfileShareState extends State<ProfileShare> {
                 padding: EdgeInsets.symmetric(horizontal: 60, vertical: 12),
               ),
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => Profile()),
+                  MaterialPageRoute(builder: (context) => Setting()),
                 );
               },
-              child: Text("Done"),
+              child: Text("Done",style: TextStyle(color: Colors.black),),
             ),
           ],
         ),

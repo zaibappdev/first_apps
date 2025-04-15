@@ -49,6 +49,10 @@ dependencies:
   #Otp verification code
   pinput: ^5.0.1
 
+  #Permission of camera and storage
+  permission_handler: ^12.0.0+1
+  image_picker: ^1.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

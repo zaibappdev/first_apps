@@ -72,7 +72,7 @@ class _SearchState extends State<Search> {
                   MaterialPageRoute(builder: (context) => Notifications()),
                 );
               },
-              child: Icon(Icons.notifications, size: 25),
+              child: Icon(Icons.favorite_border_outlined, size: 25),
             ),
             InkWell(
               onTap: () {

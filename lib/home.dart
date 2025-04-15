@@ -1,4 +1,4 @@
-import 'package:first_apps/messenger.dart';
+import 'package:first_apps/Messenger/messenger.dart';
 import 'package:first_apps/notifications.dart';
 import 'package:first_apps/post.dart';
 import 'package:first_apps/Profile/profile.dart';
@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   final List<Map<String, String>> users = [
     {"name": "ummah", "image": "assets/image.png"},
     {"name": "faizan_96", "image": "assets/faiza.png"},
@@ -50,18 +51,6 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Notifications()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.favorite_border_outlined,
-                    color: Colors.black,
-                  ),
-                ),
                 SizedBox(width: 10),
                 InkWell(
                   onTap: () {
@@ -100,15 +89,15 @@ class _HomeState extends State<Home> {
                             height: 65,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.green,
-                                width: 2,
-                              ),
+                              border: Border.all(color: Colors.green, width: 2),
                             ),
                             child: CircleAvatar(
                               radius: 30,
-                              backgroundImage: AssetImage(users[index]["image"]!),
-                              backgroundColor: Colors.transparent, // For clean edge
+                              backgroundImage: AssetImage(
+                                users[index]["image"]!,
+                              ),
+                              backgroundColor:
+                                  Colors.transparent, // For clean edge
                             ),
                           ),
                         ),
@@ -126,7 +115,6 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-
 
             ///Container posting ui
             Container(
@@ -236,13 +224,13 @@ class _HomeState extends State<Home> {
                     padding: EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        Icon(Icons.favorite_border, size: 25),
-                        SizedBox(width: 10),
-                        Icon(Icons.chat_bubble_outline, size: 25),
-                        SizedBox(width: 10),
-                        Icon(Icons.send, size: 25),
+                        Icon(Icons.favorite_border, size: 24),
+                        SizedBox(width: 15),
+                        Icon(Icons.chat_bubble_outline, size: 24),
+                        SizedBox(width: 15),
+                        Icon(Icons.send, size: 24),
                         Spacer(),
-                        Icon(Icons.save, size: 25),
+                        Icon(Icons.save_alt, size: 24),
                       ],
                     ),
                   ),
@@ -306,7 +294,7 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute(builder: (context) => Notifications()),
                 );
               },
-              child: Icon(Icons.notifications, size: 25),
+              child: Icon(Icons.favorite_border_outlined, size: 25),
             ),
             InkWell(
               onTap: () {

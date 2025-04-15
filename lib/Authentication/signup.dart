@@ -43,14 +43,13 @@ class _SignupState extends State<Signup> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //Text field 1
-          // SizedBox(height: 15),
           Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: TextField(
               controller: signupController.nameController,
               cursorHeight: 14,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person, color: Colors.black),
+                prefixIcon: Icon(Icons.face, color: Colors.black),
                 hintText: 'Name',
                 // label: Center(child: Text('Hello'))
                 border: OutlineInputBorder(
@@ -75,6 +74,29 @@ class _SignupState extends State<Signup> {
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person, color: Colors.black),
                 hintText: 'Username',
+                // label: Center(child: Text('Hello'))
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(color: Colors.green, width: 2.0),
+                ),
+              ),
+            ),
+          ),
+
+          //Text field 2
+          SizedBox(height: 10),
+          Padding(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            child: TextField(
+              controller: signupController.numberController,
+              cursorHeight: 14,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.phone, color: Colors.black),
+                hintText: 'Number',
                 // label: Center(child: Text('Hello'))
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),

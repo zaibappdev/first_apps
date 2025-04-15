@@ -1,6 +1,4 @@
-import 'package:first_apps/Profile/profile_edit.dart';
-import 'package:first_apps/Profile/profile_share.dart';
-import 'package:first_apps/Profile/setting.dart';
+import 'package:first_apps/Setting/setting.dart';
 import 'package:first_apps/post.dart';
 import 'package:first_apps/search.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +23,17 @@ class _ProfileState extends State<Profile> {
     'assets/ramazans.jpg',
     'assets/ramazan.jpg',
     'assets/ramazans.jpg',
+
+    'assets/ali.png',
+    'assets/arif.png',
+    'assets/faiza.png',
+    'assets/flutter.png',
+    'assets/hammad.png',
+    'assets/img.png',
+    'assets/rahim.png',
+    'assets/image.png',
+    'assets/images.png',
+    'assets/saddam.png',
   ];
 
   @override
@@ -62,17 +71,57 @@ class _ProfileState extends State<Profile> {
                   builder: (context) {
                     return Container(
                       padding: EdgeInsets.only(),
-                      height: 400,
+                      height: 100,
                       width: 400,
                       child: Column(
                         children: [
-                          Text(
-                            "This is a Bottom Sheet",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          //Choose from library
+                          Row(
+                            children: [
+                              //Profile change in bottom sheet
+                              SizedBox(width: 15),
+                              Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.green,
+                                    width: 2,
+                                  ),
+                                ),
+                                child: CircleAvatar(
+                                  backgroundImage: AssetImage(
+                                    'assets/image.png',
+                                  ),
+                                  radius: 25,
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                'ummah.com',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              SizedBox(width: 140,),
+                              Icon(Icons.check_circle,size: 20,color: Colors.blue,)
+                            ],
                           ),
+
+                          //Take photo
+                          SizedBox(height: 15),
+                          Row(
+                            children: [
+                              SizedBox(width: 10),
+                              Icon(Icons.add_box_outlined,size: 40,),
+                              SizedBox(width: 5),
+                              Text(
+                                'Add Ummah account',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ],
+                          ),
+
                         ],
                       ),
                     );
@@ -120,8 +169,10 @@ class _ProfileState extends State<Profile> {
 
                 SizedBox(width: 45),
                 Column(children: [Text('54'), Text('Post')]),
+
                 SizedBox(width: 25),
                 Column(children: [Text('864'), Text('Followers')]),
+
                 SizedBox(width: 25),
                 Column(children: [Text('213'), Text('Following')]),
               ],
@@ -133,6 +184,7 @@ class _ProfileState extends State<Profile> {
                 Text('Ummah', style: TextStyle(color: Colors.black87)),
               ],
             ),
+
             Row(
               children: [
                 SizedBox(width: 15),
@@ -141,64 +193,6 @@ class _ProfileState extends State<Profile> {
                   child: Text(
                     'BIO OF USER',
                     style: TextStyle(color: Colors.black),
-                  ),
-                ),
-              ],
-            ),
-
-            // Edit & share profile buttons
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  child: Container(
-                    width: 120,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black26),
-                    ),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Edit profile',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProfileEdit()),
-                    );
-                  },
-                ),
-
-                SizedBox(width: 20),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProfileShare()),
-                    );
-                  },
-                  child: Container(
-                    width: 120,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black26),
-                    ),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Share profile',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
                   ),
                 ),
               ],
@@ -294,7 +288,7 @@ class _ProfileState extends State<Profile> {
                   MaterialPageRoute(builder: (context) => Notifications()),
                 );
               },
-              child: Icon(Icons.notifications, size: 25),
+              child: Icon(Icons.favorite_border_outlined, size: 25),
             ),
             InkWell(
               onTap: () {

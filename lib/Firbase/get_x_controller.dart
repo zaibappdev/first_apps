@@ -8,6 +8,7 @@ import '../Authentication/login.dart';
 class SignupController extends GetxController {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
+  final TextEditingController numberController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -24,6 +25,7 @@ class SignupController extends GetxController {
       await _firestore.collection('Users').doc(data.user!.uid).set({
         'Name': nameController.text.trim(),
         'Username': usernameController.text.trim(),
+        'Number': numberController.text.trim(),
         'Email': emailController.text.trim(),
         'Password': passwordController.text.trim(),
         'uid': data.user!.uid,

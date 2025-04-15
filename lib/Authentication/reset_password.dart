@@ -15,6 +15,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24),
@@ -85,7 +86,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => Login()),
                     );
