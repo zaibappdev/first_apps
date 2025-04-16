@@ -2,7 +2,7 @@ import 'package:first_apps/Setting/setting.dart';
 import 'package:first_apps/post.dart';
 import 'package:first_apps/search.dart';
 import 'package:flutter/material.dart';
-import '../home.dart';
+import '../Home/home.dart';
 import '../notifications.dart';
 
 class Profile extends StatefulWidget {
@@ -49,9 +49,10 @@ class _ProfileState extends State<Profile> {
         title: Row(
           children: [
             Text(
-              'ummah.com',
+              'ummah_official',
               style: TextStyle(color: Colors.black, fontSize: 20),
             ),
+            Icon(Icons.verified_rounded,color: Colors.blue,size: 16,),
             InkWell(
               child: Icon(
                 Icons.keyboard_arrow_down,
@@ -171,7 +172,7 @@ class _ProfileState extends State<Profile> {
                 Column(children: [Text('54'), Text('Post')]),
 
                 SizedBox(width: 25),
-                Column(children: [Text('864'), Text('Followers')]),
+                Column(children: [Text('984K'), Text('Followers')]),
 
                 SizedBox(width: 25),
                 Column(children: [Text('213'), Text('Following')]),
@@ -191,7 +192,7 @@ class _ProfileState extends State<Profile> {
                 Padding(
                   padding: EdgeInsets.only(left: 0),
                   child: Text(
-                    'BIO OF USER',
+                    'Seeking knowledge & striving to please Allah',
                     style: TextStyle(color: Colors.black),
                   ),
                 ),

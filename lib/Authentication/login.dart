@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:first_apps/home.dart';
+import 'package:first_apps/Home/home.dart';
 import 'package:first_apps/Authentication/signup.dart';
 import 'package:flutter/material.dart';
 import 'forget_password.dart';

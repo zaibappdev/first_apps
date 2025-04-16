@@ -31,7 +31,7 @@ class _SettingNotificationState extends State<SettingNotification> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                   child: Text(
                     "General",
                     style: TextStyle(
@@ -100,7 +100,7 @@ class _SettingNotificationState extends State<SettingNotification> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                   child: Text(
                     "Islamic Reminders",
                     style: TextStyle(
@@ -180,7 +180,7 @@ class _SettingNotificationState extends State<SettingNotification> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                   child: Text(
                     "Social",
                     style: TextStyle(

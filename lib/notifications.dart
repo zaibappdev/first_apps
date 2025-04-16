@@ -2,8 +2,7 @@ import 'package:first_apps/post.dart';
 import 'package:first_apps/Profile/profile.dart';
 import 'package:first_apps/search.dart';
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'Home/home.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -17,13 +16,13 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/image.png'),
-          SizedBox(height: 15),
-          Text('Welcome to Notifications',style: TextStyle(fontSize: 20),),
-        ],
+      
+      //Appbar
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+
+        title: Text("Notifications"),
       ),
 
       ///Bottom navigation bar

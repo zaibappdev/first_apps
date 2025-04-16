@@ -4,6 +4,7 @@ import 'package:first_apps/post.dart';
 import 'package:first_apps/Profile/profile.dart';
 import 'package:first_apps/search.dart';
 import 'package:flutter/material.dart';
+import 'home_custum_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -71,7 +72,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ///Circle avatars, images and names
+            //Circle avatars, images and names
             Padding(
               padding: EdgeInsets.all(5),
               child: SizedBox(
@@ -84,7 +85,44 @@ class _HomeState extends State<Home> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8),
-                          child: Container(
+                          child: index == 0
+                              ? Stack(
+                            children: [
+                              Container(
+                                width: 65,
+                                height: 65,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: Colors.green, width: 2),
+                                ),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: AssetImage(
+                                    users[index]["image"]!,
+                                  ),
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: Colors.white, width: 2),
+                                  ),
+                                  padding: EdgeInsets.all(2),
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 14,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                              : Container(
                             width: 65,
                             height: 65,
                             decoration: BoxDecoration(
@@ -96,8 +134,7 @@ class _HomeState extends State<Home> {
                               backgroundImage: AssetImage(
                                 users[index]["image"]!,
                               ),
-                              backgroundColor:
-                                  Colors.transparent, // For clean edge
+                              backgroundColor: Colors.transparent,
                             ),
                           ),
                         ),
@@ -117,133 +154,20 @@ class _HomeState extends State<Home> {
             ),
 
             ///Container posting ui
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black26), // Outline Border
-                borderRadius: BorderRadius.circular(
-                  2,
-                ), // Optional: Rounded Corners
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        // CircleAvatar
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundImage: AssetImage('assets/image.png'),
-                        ),
-                        SizedBox(width: 5),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Profile(),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Ummah', style: TextStyle(fontSize: 16)),
-                              Text(
-                                'ummah.com',
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+            home_custom_widget(screenWidth: screenWidth, name: 'ummah_official', avatar: 'assets/image.png', image: 'assets/image.png', bio: 'Hello dear ummah brothers.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'muhammad_ali', avatar: 'assets/ali.png', image: 'assets/ali.png', bio: 'Its our passion to take some photos.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'arif_hussain', avatar: 'assets/arif.png', image: 'assets/arif.png', bio: 'Explore the world dear.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'ummah_official', avatar: 'assets/image.png', image: 'assets/eid.png', bio: 'Eid Mubarak all ummah family.',),
 
-                        ///Bottom sheet in icon
-                        Spacer(),
-                        InkWell(
-                          child: Row(
-                            children: [
-                              // Icon(Icons.more_horiz), // Horizontal three dots
-                              Icon(Icons.more_vert),
-                              // Vertical three dots
-                            ],
-                          ),
-                          onTap: () {
-                            showModalBottomSheet(
-                              showDragHandle: true,
+            home_custom_widget(screenWidth: screenWidth, name: 'fazan', avatar: 'assets/faiza.png', image: 'assets/faiza.png', bio: 'its our style.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'ummah_official', avatar: 'assets/image.png', image: 'assets/ramazan.jpg', bio: 'Ramazan Mubarak all ummah brothers.',),
 
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(10),
-                                ),
-                              ),
-                              context: context,
-                              builder: (context) {
-                                return Container(
-                                  padding: EdgeInsets.only(),
-                                  height: 400,
-                                  width: 400,
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "This is a Bottom Sheet",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+            home_custom_widget(screenWidth: screenWidth, name: 'hammad', avatar: 'assets/hammad.png', image: 'assets/hammad.png', bio: 'Hello ummah brothers.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'zaib_mughal_09', avatar: 'assets/images.png', image: 'assets/images.png', bio: 'First time I take picture.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'rahim_shah', avatar: 'assets/rahim.png', image: 'assets/rahim.png', bio: 'its my dream to buy a car.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'saddam_sheikh', avatar: 'assets/saddam.png', image: 'assets/saddam.png', bio: 'Always live happy in your life.',),
+            home_custom_widget(screenWidth: screenWidth, name: 'ummah_official', avatar: 'assets/image.png', image: 'assets/ramazans.jpg', bio: 'Dont forget to pray for gaza.',),
 
-                  ///Centre photos and videos etc
-                  Container(
-                    height: 400,
-                    width: screenWidth,
-                    decoration: BoxDecoration(
-                      color: Colors.purple,
-                      image: DecorationImage(
-                        image: AssetImage("assets/ramazans.jpg"),
-                        fit: BoxFit.cover,
-                        filterQuality: FilterQuality.high,
-                      ),
-                    ),
-                  ),
-
-                  /// Bottom icons
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.favorite_border, size: 24),
-                        SizedBox(width: 15),
-                        Icon(Icons.chat_bubble_outline, size: 24),
-                        SizedBox(width: 15),
-                        Icon(Icons.send, size: 24),
-                        Spacer(),
-                        Icon(Icons.save_alt, size: 24),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 5),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text(
-                      '“O Allah, accept our fasts, prayers, and good deeds in this holy month.” ',
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),

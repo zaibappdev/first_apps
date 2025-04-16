@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:first_apps/Authentication/login.dart';
-import 'home.dart';
+import 'Home/home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

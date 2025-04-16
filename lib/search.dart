@@ -1,7 +1,7 @@
 import 'package:first_apps/post.dart';
-import 'package:first_apps/Profile/profile.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'Profile/profile.dart';
+import 'Home/home.dart';
 import 'notifications.dart';
 
 class Search extends StatefulWidget {
@@ -12,19 +12,53 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  final TextEditingController _searchController = TextEditingController();
+  int _selectedCategoryIndex = 0;
+
+  final List<String> _categories = [
+    'Photos',
+    'Islamic',
+    'Shops',
+    'Sports',
+    'Food',
+    'Art',
+    'Quran',
+    'Travel'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/image.png'),
-          SizedBox(height: 15),
-          Text('Welcome to Search', style: TextStyle(fontSize: 20)),
-        ],
+      //Appbar
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+
+        title: Container(
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextField(
+            controller: _searchController,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search, color: Colors.grey),
+              hintText: 'Search',
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.symmetric(vertical: 10),
+            ),
+            onChanged: (value) {
+              setState(() {}); // Rebuild UI on input change
+            },
+          ),
+        ),
       ),
+
+      //Body
+      body: _buildSearchContent(),
 
       ///Bottom navigation bar
       bottomNavigationBar: BottomAppBar(
@@ -48,12 +82,7 @@ class _SearchState extends State<Search> {
               child: Icon(Icons.home, size: 25),
             ),
             InkWell(
-              onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => Search()),
-                // );
-              },
+              onTap: () {},
               child: Icon(Icons.search),
             ),
             InkWell(
@@ -63,7 +92,7 @@ class _SearchState extends State<Search> {
                   MaterialPageRoute(builder: (context) => Post()),
                 );
               },
-              child: Icon(Icons.add_circle_outline, size: 25),
+              child: Icon(Icons.add_box_outlined, size: 25),
             ),
             InkWell(
               onTap: () {
@@ -87,5 +116,118 @@ class _SearchState extends State<Search> {
         ),
       ),
     );
+  }
+
+  //Custom widget bring from deepseek AI
+  Widget _buildSearchContent() {
+    if (_searchController.text.isNotEmpty) {
+      // Show users when typing
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Users',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://randomuser.me/api/portraits/men/1.jpg'),
+                  ),
+                  title: Text('islamic_vibes'),
+                  trailing: Icon(Icons.close, size: 20),
+                ),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://randomuser.me/api/portraits/women/2.jpg'),
+                  ),
+                  title: Text('islamic_motivations'),
+                  trailing: Icon(Icons.close, size: 20),
+                ),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://randomuser.me/api/portraits/men/3.jpg'),
+                  ),
+                  title: Text('quran_surah'),
+                  trailing: Icon(Icons.close, size: 20),
+                ),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://randomuser.me/api/portraits/women/4.jpg'),
+                  ),
+                  title: Text('islamic_shorts'),
+                  trailing: Icon(Icons.close, size: 20),
+                ),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://randomuser.me/api/portraits/men/5.jpg'),
+                  ),
+                  title: Text('ummah_official'),
+                  trailing: Icon(Icons.close, size: 20),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    } else {
+      // Show photos when not typing
+      return Column(
+        children: [
+          Container(
+            height: 50,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: _categories.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ChoiceChip(
+                    label: Text(_categories[index]),
+                    selected: _selectedCategoryIndex == index,
+                    selectedColor: Colors.blue[100],
+                    onSelected: (selected) {
+                      setState(() {
+                        _selectedCategoryIndex = index;
+                      });
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+          Divider(height: 1),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 2,
+                crossAxisSpacing: 2,
+              ),
+              itemCount: 30,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: Colors.grey[200],
+                  child: Image.network(
+                    'https://picsum.photos/500/500?random=$index',
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      );
+    }
   }
 }
